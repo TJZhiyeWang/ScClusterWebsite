@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<title>IRGW</title>
+	{% load static %}
+	<link href="{% static "/images/methods.css" %}" type="text/css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="{% static "/js/load-min.js" %}" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		function mask_element_continuious() {
+			$.mask_element('#test_mask');
+		}
+		function mask_close_all() {
+			$.mask_close_all();
+		}
+		function randomString(len) {
+			len = len || 32;
+			var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+			var maxPos = $chars.length;
+			var pwd = '';
+			for (i = 0; i < len; i++) {
+				pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+			}
+			return pwd;
+		}
+	</script>
+	<script>
+		$(document).ready(function () {
+			$("#bttn").click(function () {
+				var myFormData = new FormData($('#dataform')[0]);
+				var uniqueNumber = randomString(12);
+				myFormData.append('unique', uniqueNumber);
+				mask_element_continuious();
+				$.ajax({
+					type: "POST",
+					url: "/upload/visualupload/",   //
+					data: myFormData,
+					processData: false,
+					contentType: false,
+					success: function (result) {  //result是后端数据
+						if (result.status == 'success') {
+							polling = window.setInterval(IRGWqueryBackend, 10000)
+							alert('your data is being processed in the backend, please don not close this page!')
+						}else{
+							alert('the back end is busy now, please try later')
+						}
+					}
+				})
+
+				function IRGWqueryBackend() {
+					$.ajax({
+						type: "GET",
+						url: "/upload/IRGW/",
+						data: { "unique": uniqueNumber },
+						success: function (result) {
+							console.log(result)
+							if (result.status == true) {
+								window.clearInterval(polling);
+								mask_close_all();
+								var jsondata = result.jsondata
+								console.log(result)
+								var con = document.getElementById('container');
+								var point = new Point(con);
+								point.init({
+									W: 720,
+									H: 400,
+									//title:'1990 与 2015 年各国家人均寿命与 GDP',
+									xAxis: {
+										name: 'dim1',
+										data: [],
+									},
+									yAxis: {
+										name: 'dim2'
+
+									},
+									desc: {
+										xVal: 'x',
+										yVal: 'y',
+										num: 'number'
+									},
+
+									series: jsondata,
+								});
+								var aridata = result.aridata
+								var popCanvas = document.getElementById('popChart');
+								//开始画柱状图
+								$('#popChart').empty();
+								var pop = document.createElement('img');
+								pop.setAttribute("class", "p2");
+								pop.setAttribute("src", result.aridata);
+								$('#popChart').append(pop);
+
+								//画热图
+								$('#heatmap').empty();
+								var heat = document.createElement('img');
+								heat.setAttribute("class", "p3");
+								heat.setAttribute("src", result.heatdata);
+								$('#heatmap').append(heat);
+							}else{
+								console.log(result.status)
+							}
+						}
+					})
+				}
+			});
+		});
+	</script>
+
+
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<a href=""><span class="logo">Single<br />Cell RNA Sequencing Data</span></a>
+			<nav>
+				<ul>
+					<li><a href="/upload/index/">Home</a></li>
+					<li><a href="/upload/datasets/">Datasets</a></li>
+					<li><a href="/upload/clustering/">Clustering Tools</a></li>
+					<li class="cur"><a href="/upload/visulization/">IRGW</a></li>
+					<li><a href="/upload/help/">Help</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="demo">
+			<h2 class="lt">Introduction：</h2>
+			<h2 class="rt">Example: </h2>
+			<h3>Three figures of an example dataset GSE52583 are as below:</h3>
+			<img src="{% static "/images/floatchart.jpg" %}" class="float">
+			<img src="{% static "/images/cm1.png" %}" class="exp1">
+			<h4 class="w1">Fig.1 The heatmap of cell similarity matrix.</h4>
+			<img src="{% static "/images/z.png" %}" class="exp2">
+			<h4 class="w2">Fig.2 The ARI bar of five methods</h4>
+			<p>IGRW (Integrated clustering with Random Walk on Graph) falls into the category of graph-based methods.
+				There are mainly two steps: (1) Constructing the graph of cells based on the clustering results from
+				four high-performing methods i.e. SC3, CIDR, pcaReduce and SINCERA. The weight of edge is equal to the
+				number of methods which classify corresponding two cells into the same cluster and edges which weights
+				are less than 2 are removed. (2) Finding communications on graph with random walk. Assumed that cells
+				belong to the same cluster tend to consider other cells in the same way, distance between cells (or
+				communications) are measured based on random walk probability. Then based on the idea of agglomerative
+				in hierarchical method, each cell starts in its own cluster, and pairs of clusters are merged as one
+				moves up the hierarchy. </p>
+			<img src="{% static "/images/exp3.jpg" %}" class="exp3">
+			<h4 class="w3">Fig.3 Two-dimension visulization of data</h4>
+		</div>
+
+		<form class="blanks" id="dataform">
+			<h2>Parameter settings：</h2>
+			<ul>
+				<li>Lables : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="labelfile" class="file">
+				</li>
+				<li>Dataset : &nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="datafile" class="select">
+
+				</li>
+				<li>K :
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+						type="text" name="mail" class="ml"></li>
+				<h5>
+					<li>Data format : samples×features</li>
+					<li>K : the number of clusters</li>
+				</h5>
+			</ul>
+		</form>
+
+
+		<div class="graphs">
+			<h2>Results：</h2>
+			<div id="test_mask" class="test_mask">
+				<div id="popChart"></div>
+				<div id="heatmap"></div>
+			</div>
+		</div>
+		<div id="div1" class="point">
+			<div id="container"></div>
+			<script src="{% static "/js/chart.js" %}"></script>
+		</div>
+		<button class="uploads" id="bttn">Run</button>
+	</div>
+	<script type="text/javascript" src="{% static "js/svgcheckbx.js" %}"></script>
+</body>
+
+</html>
