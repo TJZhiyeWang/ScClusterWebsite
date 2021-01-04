@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<title>Help</title>   
+{% load static %}
+<link href="{% static "/images/help.css" %}" type="text/css" rel="stylesheet">
+	
+</head>
+<body>
+	<div class="container">
+	<header> 
+		<a href=""><span class="logo">Single<br/>Cell RNA Sequencing Data</span></a>
+	    <nav>
+	      <ul>
+	        <li><a href="/upload/index/">Home</a></li>
+            <li><a href="/upload/datasets/">Datasets</a></li>
+	        <li><a href="/upload/clustering/">Clustering Tools</a></li>
+			<li><a href="/upload/visulization/">Integrated methods</a></li>
+			<li class="cur"><a href="/upload/help/">Help</a></li>
+          </ul>
+        </nav>
+	</header>
+
+	<div class="context">
+		<h1>About our platform</h1>
+		<p class="p1">In order to facilitate the clustering analysis of scRNA-seq data, we developed a user-friendly platform and the main contents are as below :</p>
+		<ul><li>15 scRNA-seq datasets</li>
+		<li>15 scRNA-seq data clustering algorithms</li>
+		<li>Our newly developed approach IRWG</li>
+		<li>Python package with 16 scRNA-seq data clustering algorithms</li></ul>
+		<div class="block">
+			<h2>Data Sources</h2>
+			<p>Here 20 scRNA-seq datasets are provided on our website system. These datasets have been processed into the same format. In detail, there are two files for each dataset, one is gene expression file and another is cell label file. The gene expression file can be seen as a numerical matrix whose rows are genes and columns are cells. The cell label file contains two columns, the first column is cell name which is consist with the column names of gene expression file, and the second column is label of cell. All of these datasets can be downloaded from our website for further analysis.
+			</p>
+		</div>
+		<div class="block">
+			<h2>Existing clustering methods</h2>
+			<p>There are 15 existing scRNA-seq data clustering methods integrated on our website system. 
+			</p>
+			<table border="1">
+			<tr>
+			<th>Category</th><th>Methods</th>
+			</tr>
+			<tr>
+				<td>Distance-based</td>
+				<td><a href="https://www.nature.com/articles/nature14966">RaceID</a>,
+					<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4802652/">pcaReduce</a>,
+					<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5020541/">cellTree</a>,
+					<a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1188-0">CIDR</a>,
+					<a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004575">SINCERA</a>,
+					<a href="https://www.nature.com/articles/nmeth.4236">SC3</a>
+				</td>
+			</tr><tr>
+				<td>Density-based</td>
+				<td><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4930624/">GiniClust</a>
+				</td>
+			</tr><tr>
+				<td>Graph-based</td>
+				<td><a href="https://academic.oup.com/bioinformatics/article/31/12/1974/214505">SNN-Cliq</a>,
+					<a href="https://www.nature.com/articles/nbt.3192">Seurat</a>
+				</td>
+			</tr><tr>
+				<td>Matrix-based</td>
+				<td><a href="https://academic.oup.com/bioinformatics/article/33/2/235/2525715">NMF</a>,
+					<a href="https://www.ncbi.nlm.nih.gov/pubmed/25700174">BackSPIN</a>
+				</td>
+			</tr><tr>
+				<td>Probability model-based</td>
+				<td><a href="http://proceedings.mlr.press/v48/prabhakaran16.pdf">BISCUIT</a>,
+					<a href="https://academic.oup.com/bioinformatics/article/34/1/139/4060554">DIMM-SC</a>
+				</td>
+			</tr><tr>
+				<td>Deep learning-based</td>
+				<td><a href="https://www.nature.com/articles/s41592-018-0229-2">scVI</a>,
+					<a href="https://www.nature.com/articles/s41467-018-07931-2">DCA</a>
+				</td>
+			</tr>
+			</table>
+			<p>Users can get the corresponding clustering results by uploading their own data to the website. <br/><br/>
+            You can get the results as following steps:<br/>
+            <b>(1) Upload your scRNA-seq data</b> which is a numeric matrix of expression values, where rows are genes, and columns are cells as a csv file. <br/>
+				<img src="{% static "/images/uploaddata.png" %}" class="fm"><br/>
+				<img src="{% static "/images/dataformat.png" %}" class="df"><br/>
+            <b>(2) Fill in the parameter K </b>which means the number of clusters. <br/> 
+				<img src="{% static "/images/datak.png" %}" class="fm"><br/>
+            <b>(3) Select the clustering methods (one or more).</b><br/>
+				<img src="{% static "/images/choosemd.png" %}" class="fm"><br/>
+            Once you finish steps above, you can get clustering results as a zip file at current web page or we will send it to your email soon. 
+
+			</p>
+		</div>
+		<div class="block">
+			<h2>New method IRGW</h2>
+			<p>The new method IRWG (Integrated clustering with Random Walk on Graph) can also be applied. An example of GSE52583 dataset is given as <a href="methods.html">this</a>. The running steps are the same as other methods, in addition, three graphs are shown for users intuitively : <br/>
+			<b>(1)	Heat map</b> <br/>
+			This figure is generated from cell similarity matrix, in which the element equals to the number of methods which classify corresponding cells into the same clusters. <br/>
+			<b>(2)	ARI bar</b> <br/>
+			This figure is generated from clustering result with 5 methods (SC3, CIDR, pcaReduce, SINCERA and IRGW). According to comparing the predicting results with true labels of data, ARI (Adjusted Rand Index) can be calculated.<br/>
+			<b>(3)	Two-dimensional presentation of data</b> <br/>
+			This figure is generated from the scRNA-seq data. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4630968/">ZIFA(Zero Inflated Factor Analysis)</a> method is applied to mappings the data in multidimensional space to a two-dimensional and visualization of data, where different colors represent different cell types. <br/>
+			If you upload your data satisfies the required format, you can see these three figures for your own data soon.
+			</p>
+		</div>
+	</div>
+		
+	</div>
+</body></html>

@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+/* CSS Document */
+body{
+	font-family: source-sans-pro;
+	background-color: #f2f2f2;
+	margin: 0;
+}
+
+.container {
+	width: 1360px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 2350px;
+	background-color: #FFFFFF;
+}
+/*标题菜单栏*/
+/* Navigation */
+header {
+	width: 100%;
+	height: 130px;
+	background-image: url(./backFigure_top.jpeg);
+	border-bottom: 1px solid #00B19D;
+}
+.logo {
+	color: #fff;
+	font-family:Consolas;
+	line-height: 22px;
+	font-weight:400;
+	text-align: left;
+	width: 10%;
+	float: left;
+	margin-top: 30px;
+	margin-left: 80px;
+	letter-spacing: 4px;
+}
+header nav {
+	float: right;
+	width: 57%;
+	text-align: right;
+	margin-right: 25px;
+}
+
+header nav ul {
+	list-style: none;
+	float: left;
+}
+nav ul li {
+	float: left;
+	color: #FFFFFF;
+	font-family:Consolas;
+	font-size: 18px;
+	text-align: left;
+	margin-right: 35px;
+	margin-top: 70px;
+	letter-spacing: 1px;
+	font-weight: 300;
+	transition: all 0.3s linear;
+}
+nav ul .cur a{
+	color: #fff;
+	padding-bottom: 18px; 
+	border-bottom: 5px solid #fff;
+}
+ul li a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+ul li:hover a {
+	color: #2C9AB7;
+}
+
+.context{
+	width: 85%;
+	margin-left: 100px;
+	margin-top: 50px;
+	font-family:"华文细黑";
+}
+.context h1{font-size: 27px;line-height: 40px;margin-top: 60px;}
+.context ul{
+	text-align: justify;
+	word-spacing: 4px;
+	margin-left: 10px;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+.block h2{font-size: 20px; margin-top: 40px;}
+.block p,.context p{
+	font-size: 15px;
+	line-height: 25px;
+	width: 95%;
+	margin-left: 30px;
+	text-align: justify;
+	margin-top: 20px;
+}
+.context .p1 {font-size: 16.5px;}
+.block table {
+	margin-left: 100px;
+	margin-top: 30px;
+	width: 960px;
+	font-size: 15px;
+}
+td{
+	height: 20px;  padding-left: 20px;
+}
+tr{height:30px;}
+td a {color: #687D7D; text-decoration: none;}
+td a:hover{color: #2C9AB7;}
+
+.block p a{color: #687D7D;text-decoration: underline; }
+.block p a:hover{color: #2C9AB7;}
+
+.block p .fm{
+	margin-left: 350px;width:350px;
+	margin-top: 20px; margin-bottom: 20px;
+}
+.df {
+	margin-left: 300px; width: 500px;
+	margin-bottom: 30px;
+}
+
+

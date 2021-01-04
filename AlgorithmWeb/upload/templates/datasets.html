@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<title>Tools</title>   
+{% load static %}
+<link href="{% static "/images/datasets.css" %}" type="text/css" rel="stylesheet">
+<style type="text/css">
+body,td,th {
+	font-size: 16px;
+}
+body {
+	background-color: #FFFFFF;
+	background-image: url();
+}
+</style>
+</head>
+<body>
+	<div class="container">
+	<header> 
+		<a href=""><span class="logo">Single<br/>Cell RNA Sequencing Data</span></a>
+	    <nav>
+	      <ul>
+	        <li><a href="/upload/index/">Home</a></li>
+            <li class="cur"><a href="/upload/datasets/">Datasets</a></li>
+	        <li><a href="/upload/clustering/">Clustering Tools</a></li>
+			<li><a href="/upload/visulization/">Integrated methods</a></li>
+			<li><a href="/upload/help/">Help</a></li>
+          </ul>
+        </nav>
+	</header>
+	 <div class="demo">
+	<h2>Download</h2>
+
+	<ul class="tabbtn" id="normaltab">
+		<li class="current"><a href="#">Series GEO</a></li>
+		<li><a href="#">Other Datasets</a></li>
+	</ul><!--tabbtn end-->
+
+	<div class="tabcon" id="normalcon">
+		<div class="sublist">
+			<div class="fPics" id="fPics">
+				<a href=""><p>Organism:  Mus musculus<br/> Cluster number：3<br/> Cell number: 49<br/> Gene number: 25737</p></a>
+				<a href=""><p>Organism: Homo sapiens<br/> Cluster number：7 <br/> Cell number: 90<br/> Gene number: 19595</p></a>
+				<a href=""><p>Organism:  Mus musculus <br/> Cluster number：10 <br/> Cell number: 268<br/> Gene number: 21231</p></a>
+				<a href=""><p>Organism:  Mus musculus<br/> Cluster number：5 <br/> Cell number: 80<br/> Gene number: 23837</p></a>
+				<a href=""><p>Organism:  Mus musculus<br/> Cluster number：7 <br/> Cell number: 187<br/> Gene number: 29018</p></a>
+				<a href=""><p>Organism: Homo sapiens<br/> Cluster number：5 <br/> Cell number: 430<br/> Gene number: 5948</p></a>
+				<a href=""><p>Organism:  Mus musculus <br/> Cluster number：11 <br/> Cell number: 622<br/> Gene number: 25334</p></a>
+				<a href=""><p>Organism: Homo sapiens;Mus musculus<br/> Cluster number：4 <br/> Cell number: 2717<br/> Gene number: 24175</p></a>
+				<a href=""><p>Organism:  Mus musculus <br/> Cluster number：9 <br/> Cell number: 3005<br/> Gene number: 19972</p></a>
+				<a href=""><p>Organism: Homo sapiens <br/> Cluster number：14 <br/> Cell number: 1937<br/> Gene number: 20126</p></a>
+				<a href=""><p>Organism: Homo sapiens <br/> Cluster number：14 <br/> Cell number: 1724 <br/> Gene number: 20126</p></a>
+				<a href=""><p>Organism: Homo sapiens <br/> Cluster number：14 <br/> Cell number: 3605 <br/> Gene number: 20126</p></a>
+				<a href=""><p>Organism: Homo sapiens <br/> Cluster number：14 <br/> Cell number: 1303 <br/> Gene number: 20126</p></a>
+				<a href=""><p>Organism: Mus musculus <br/> Cluster number：13 <br/> Cell number: 822 <br/> Gene number: 14878</p></a>
+				<a href=""><p>Organism: Mus musculus <br/> Cluster number：13<br/> Cell number: 1064 <br/> Gene number: 14878</p></a>
+				<a href=""><img src="{% static "/images/sw2.jpg" %}"></a>
+			</div>
+			<ul class="fBtns" id="fBtns">
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE59892&format=file&file=GSE59892%5FZhong%5Ffluidigm%5FRT%2DPCR%5Fraw%5Fcts%2Etxt%2Egz">GSE59892</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi">GSE36552</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE45719&format=file">GSE45719</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE52583&format=file">GSE52583</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE51372&format=file&file=GSE51372%5FreadCounts%2Etxt%2Egz">GSE51372</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE57872&format=file&file=GSE57872%5FGBM%5Fdata%5Fmatrix%2Etxt%2Egz">GSE57872</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE59739&format=file&file=GSE59739%5FDataTable%2Etxt%2Egz">GSE59739</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE65525&format=file">GSE65525</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE60361&format=file&file=GSE60361%5FC1%2D3005%2DExpression%2Etxt%2Egz">GSE60361</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2230757&format=file&file=GSM2230757%5Fhuman1%5Fumifm%5Fcounts%2Ecsv%2Egz">GSM2230757</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2230758&format=file&file=GSM2230758%5Fhuman2%5Fumifm%5Fcounts%2Ecsv%2Egz">GSM2230758</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2230759&format=file&file=GSM2230759%5Fhuman3%5Fumifm%5Fcounts%2Ecsv%2Egz">GSM2230759</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2230760&format=file&file=GSM2230760%5Fhuman4%5Fumifm%5Fcounts%2Ecsv%2Egz">GSM2230760</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2230761&format=file&file=GSM2230761%5Fmouse1%5Fumifm%5Fcounts%2Ecsv%2Egz">GSM2230761</a></li>
+				<li><span>▪</span><a href="https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM2230762&format=file&file=GSM2230762%5Fmouse2%5Fumifm%5Fcounts%2Ecsv%2Egz">GSM2230762</a></li>
+			</ul>
+		</div><!--sublist end-->
+
+
+	</div><!--tabcon end-->
+		 
+	<div><p>Detail1:</p>
+		 </div>
+	
+		 
+</div>
+	</div>
+<script type="text/javascript" src="{% static "/js/jquery.js" %}"></script>
+<script type="text/javascript" src="{% static "/js/jquery.tabso_yeso.js" %}"></script>
+<script type="text/javascript">
+
+$(document).ready(function($){
+		//默认选项卡切换
+	$("#normaltab").tabso({
+		cntSelect:"#normalcon",
+		tabEvent:"mouseover",
+		tabStyle:"normal"
+	});
+});
+
+</script>
+	
+<script type="text/javascript" src="{% static "/js/common.js" %}"></script>
+<script>
+	new Bmove("#fBtns","#fPics");
+</script>
+<script>	
+	new Bmove("#fBtns2","#fPics2");
+</script>
+	
+</body></html>

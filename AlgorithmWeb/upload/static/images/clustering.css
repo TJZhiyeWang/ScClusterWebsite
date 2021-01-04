@@ -1,0 +1,372 @@
+@charset "utf-8";
+
+/* CSS Document */
+body{
+	font-family: source-sans-pro;
+	background-color: #f2f2f2;
+	margin: 0;
+}
+
+.container {
+	width: 1360px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 1180px;
+	background-color: #FFFFFF;
+}
+/*标题菜单栏*/
+/* Navigation */
+header {
+	width: 100%;
+	height: 130px;
+	background-image: url(./backFigure_top.jpeg);
+	border-bottom: 1px solid #00B19D;
+}
+.logo {
+	color: #fff;
+	font-family:Consolas;
+	line-height: 22px;
+	font-weight:400;
+	text-align: left;
+	width: 10%;
+	float: left;
+	margin-top: 30px;
+	margin-left: 80px;
+	letter-spacing: 4px;
+}
+header nav {
+	float: right;
+	width: 57%;
+	text-align: right;
+	margin-right: 25px;
+}
+
+header nav ul {
+	list-style: none;
+	float: left;
+}
+
+nav ul li {
+	float: left;
+	font-family:Consolas;
+	color: #FFFFFF;
+	font-size: 18px;
+	text-align: left;
+	margin-right: 35px;
+	margin-top: 69px;
+	letter-spacing: 1px;
+	font-weight: 300;
+	transition: all 0.3s linear;
+}
+nav ul .cur a{
+	color: #fff; 
+	padding-bottom: 18px; 
+	border-bottom: 5px solid #fff;
+}
+ul li a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+ul li:hover a {
+	color: #2C9AB7;
+}
+
+.left-block {
+	width: 45%;
+	float: left;
+	margin-top: 50px;
+	margin-left: 100px;
+	font-family: "微软雅黑";
+}
+
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*多选框
+.ac-checkbox {
+	font-family: "微软雅黑";
+	margin-top: 130px;
+}*/
+
+.ac-custom {
+	padding: 0 0px ;
+	max-width: 80%;
+	margin-left: 0px;
+}
+
+.select h2 {
+	font-size: 20px;
+	font-family:"华文细黑";
+	padding: 0 0 0 0px;
+	margin: 50 0 0px 0px;
+}
+.checktitle {
+	margin-top: 230px; 
+/*	border-top: solid 1px rgba(108,102,102,0.1);*/
+}
+form ul{
+	list-style: none;
+	padding: 0;
+	left: auto;
+	margin-top: 10px;
+	margin-bottom: 40px;
+	width: 35%;
+	position: absolute;
+}
+
+.block1 h3{
+	font-size: 15px;
+	font-weight: 350;
+	/*margin-top: -120px;*/
+	margin-left: 40px;
+}
+.block2 h3{
+	font-size: 15px;
+	font-weight: 350;
+	margin-left: 240px;
+}
+.block1,
+.ac-custom ol {
+	list-style: none;
+	padding: 0;
+	left: auto;
+	margin-top: 0px;
+	width: 20%;
+	float: left;
+	position: absolute;
+}
+.block2,
+.ac-custom ol {
+	list-style: none;
+	margin-top: 32px;
+	width: 100%;
+	left: auto;
+	margin-right: auto;
+	float: center;
+	/*display: inline;*/
+	margin-left: 60px;
+}
+
+.ac-circle li{
+	margin: 10px auto 0 50px;
+	padding: 0px;
+	position: relative;
+}
+
+.block1 li {
+	margin: 10px auto 0 50px;
+	padding: 0px 0px;
+	position: relative;
+}
+.block2 li {
+	margin: 10px auto 0 250px;
+	padding: 0px 0px 0px 0px;
+	position: relative;
+}
+
+.ac-custom label {
+	display: inline-block;
+	position: relative;
+	font-size: 15px;
+	padding: 0 0 0 40px;
+	vertical-align: top;
+	color: #3E3C3C;
+	cursor: pointer;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.ac-custom input[type="checkbox"],
+.ac-custom input[type="radio"]{
+	width: 20px;
+	height: 20px;
+	left: 11px;
+	position: absolute;
+	cursor: pointer;
+	opacity: 0;
+	-webkit-appearance: none;
+	display: inline-block;
+	vertical-align: middle;
+	z-index: 100;
+}
+
+/*多选框尺寸*/
+.ac-custom label::before {
+	width: 20px;
+	height: 20px;
+	left: -10px;
+	position: absolute;
+	cursor: pointer;
+}
+
+/*选框颜色*/
+.ac-custom label::before {
+	content: '';
+	border: 1px solid black;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+.ac-radio label::before {
+	border-radius: 50%;
+}
+
+/*字体颜色*/
+.ac-custom input[type="checkbox"]:checked + label,
+.ac-custom input[type="radio"]:checked + label {
+	color: black;
+} 
+
+.ac-checkbox input[type="checkbox"]:checked + label::before {
+	opacity: 0.8;
+	background: rgba(120, 200, 200, 1);
+	border: 1px solid rgba(200, 250, 250, 1);
+	box-shadow: 0 0 .1em .1em #58a;
+}
+
+.ac-radio input[type="radio"]:checked + label::before {
+	background: rgba(120, 200, 200, 1);
+	border: 1px solid rgba(200, 250, 250, 1);
+	border-radius: 50%;
+	box-shadow: 0 0 .1em .1em #58a;
+}
+/* 勾选后的图标样式 */
+.ac-radio label svg {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	margin-top: 4px;
+	left: -6px;
+	pointer-events: none;	
+}
+
+.block1 svg {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	margin-top: 0px;
+	left: -9px;
+	pointer-events: none;
+}
+.block2 svg {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	margin-top: 0px;
+	left: -9px;
+	pointer-events: none;
+}
+
+.ac-custom svg path {
+	stroke: black;
+	stroke-width: 13px;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
+}
+
+.file,.k{
+	height:25px;
+	width: 250px;
+	border: 1px solid black;
+}
+.file{margin-left: 20px;}
+.k{margin-left: 72px;}
+.lik{margin-top: 20px;}
+.lif{margin-top: 20px;}
+
+select {
+	height: 25px;
+	width: 250px;
+	border: 1px solid black;
+	text-align: center;
+	text-align-last: center;
+}
+.mailblock {
+	margin-top: 140px;
+	margin-left: 0px;
+	font-size: 18px;
+	font-family: "微软雅黑";
+}
+
+.ml {
+	width: 250px; height: 25px;
+	margin-left: 42px;
+	border: 1px solid black;
+}
+
+.btn{
+	width: 100px;
+	height: 28px;
+	margin-top: -10px;
+}
+.instr {
+	width: 45%;
+	font-family: "微软雅黑";
+	margin-top: 67px;
+	margin-left: -50px;
+	float:left;
+	display: inline;
+}
+.instr img{
+	width: 600px;
+	margin-top: 50px;
+}
+t3 {
+	font-size: 20px;
+	font-weight: bold;
+	font-family:"华文细黑";
+}
+p {
+	font-size: 15px;
+	font-weight: lighter;
+	line-height: 30px;
+	text-indent: 2em;
+	margin-top: 30px;
+	word-spacing: 2px;
+}
+
+.uploads {
+	margin-left: 160px;
+	margin-top: 40px;
+	width: 100px;
+	height: 25px;
+	/*border: 1px solid black;  /*自定义边框*/
+	/*outline: #505050;   /*消除默认点击蓝色边框效果*/
+}
+
+/*控制悬浮*/
+.mTips {
+	position: fixed;
+	padding: 8px 12px;
+	color: #fff;
+	border-radius: 5px;
+	font-family: "微软雅黑";
+	z-index: 999;
+	display: inline;
+	font-size: 14px;
+	width:300px;
+}
+
+.mTips-default {
+	background-color: #57B7B5;
+	color: #fff;
+}
+
+.srcin {
+	position: absolute;
+	margin-left: 40px;
+	width: 500px;
+	font-size: 15px;
+	font-weight: 400;
+}
+.srcin li{list-style: none;}
+.srcin h5{
+	font-weight: 200; font-family: "微软雅黑"; color:#2C9AB7;
+	margin-left: 15px; margin-top: 40px;}
+.srcin h5 li{list-style:disc; height: 30px;}
